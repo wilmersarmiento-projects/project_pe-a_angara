@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // <--- Esto le dice a Next.js que cree archivos web normales (.html)
-  basePath: '/v0-flotime-landing-page', // <--- Obligatorio: Debe ser el nombre exacto de tu repositorio de GitHub
+  output: 'export',
+  basePath: '/v0-flotime-landing-page',
+  assetPrefix: '/v0-flotime-landing-page/', // <--- ¡Esta línea arregla los estilos!
   typescript: {
     ignoreBuildErrors: true,
   },
