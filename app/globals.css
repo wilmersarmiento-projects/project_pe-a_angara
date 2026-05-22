@@ -1,0 +1,179 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* FLOTIME Premium SaaS - Inverted Palette (Burnt Amber Background) */
+  --background: #D4A017;
+  --background-alt: #C4940F;
+  --background-dark: #B38A0D;
+  --foreground: #0A0A0A;
+  --foreground-light: #1A1A1A;
+  --foreground-muted: #2D2D2D;
+  
+  /* Accent Colors */
+  --carbon: #0E0E0E;
+  --carbon-light: #1C1C1C;
+  --carbon-lighter: #2A2A2A;
+  
+  /* Semantic Colors */
+  --primary: #0A0A0A;
+  --primary-foreground: #D4A017;
+  --secondary: #1C1C1C;
+  --secondary-foreground: #F5F5F5;
+  --muted: rgba(10, 10, 10, 0.6);
+  --muted-foreground: rgba(10, 10, 10, 0.7);
+  --accent: #C4940F;
+  --accent-foreground: #0A0A0A;
+  
+  /* UI Elements */
+  --border: rgba(10, 10, 10, 0.15);
+  --border-strong: rgba(10, 10, 10, 0.25);
+  --input: rgba(10, 10, 10, 0.08);
+  --ring: rgba(10, 10, 10, 0.3);
+  
+  /* Status Colors */
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --info: #3B82F6;
+  
+  /* Card & Components */
+  --card: rgba(10, 10, 10, 0.05);
+  --card-foreground: #0A0A0A;
+  --card-hover: rgba(10, 10, 10, 0.08);
+  
+  /* Shadows & Glows */
+  --shadow: 0 4px 24px rgba(10, 10, 10, 0.15);
+  --shadow-lg: 0 8px 64px rgba(10, 10, 10, 0.2);
+  --glow: 0 0 40px rgba(10, 10, 10, 0.1);
+  
+  /* Spacing & Radius */
+  --radius: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  
+  /* Typography */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-manrope), system-ui, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--foreground-muted);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-manrope), system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 4px var(--success); }
+  50% { box-shadow: 0 0 12px var(--success), 0 0 20px rgba(34, 197, 94, 0.3); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Reveal animation for scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(212, 160, 23, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Dark glass for cards on amber bg */
+.glass-dark {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
