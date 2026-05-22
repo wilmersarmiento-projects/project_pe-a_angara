@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   basePath: '/v0-flotime-landing-page',
-  assetPrefix: '/v0-flotime-landing-page/', // <--- ¡Esta línea arregla los estilos!
+  assetPrefix: '/v0-flotime-landing-page', // <--- Cambiado sin la barra final
   typescript: {
     ignoreBuildErrors: true,
   },
