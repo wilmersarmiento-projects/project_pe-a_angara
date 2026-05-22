@@ -47,7 +47,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between">
           <Link href="#hero" className="flex items-center">
             <Image
-              src="/images/flotime-logo.png"
+              src="/project_pe-a_angara/images/flotime-logo.png" // <--- ¡Añadido el nombre del repositorio aquí!
               alt="FLOTIME - Logistica Inteligente"
               width={140}
               height={45}
