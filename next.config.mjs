@@ -1,11 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/v0-flotime-landing-page',
-  assetPrefix: '/v0-flotime-landing-page', // <--- Cambiado sin la barra final
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  basePath: '/project_pe-a_angara',
   images: {
     unoptimized: true,
   },
